@@ -13,10 +13,12 @@ import java.util.HashMap;
 import java.util.Map;
 import com.corexfin.model.Bank;
 import java.util.*;
+
 /**
  * URI Versioning : Standard
  * /admin/ModelName/Version:v1/your-endpoint-crud
  */
+
 @RestController
 @RequestMapping("/admin/bank/v1")
 public class BankController {
