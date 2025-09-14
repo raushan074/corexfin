@@ -16,8 +16,8 @@ public interface BankService {
         public Bank  getBankFromCorexfinById(String bankId) throws BankNotFoundException;
         public Bank  getBankFromCorexfinByName(String bankName) throws BankNotFoundException;
         public List<Bank> getAllBankFromCorexfin();
-        public BankResponse updateBankTOCorexfin(BankRequest bankRequest, WebRequest webRequest);
-        public BankResponse updateBankTOCorexfinByEmail(String email, WebRequest webRequest);
-        public void deleteBankFromCorexfinById(String bankId);
+        public BankResponse updateBankTOCorexfinById(String bankId,BankRequest bankRequest, WebRequest webRequest);
+        public BankResponse updateBankTOCorexfinByEmail(String email,BankRequest bankRequest, WebRequest webRequest);
+        public BankResponse deleteBankFromCorexfinById(String bankId);
 
 }

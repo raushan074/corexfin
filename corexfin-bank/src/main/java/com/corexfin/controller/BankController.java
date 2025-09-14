@@ -15,11 +15,14 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.corexfin.model.Bank;
+import java.util.*;
 
 /**
  * URI Versioning : Standard
  * /admin/ModelName/Version:v1/your-endpoint-crud
  */
+
 @RestController
 @RequestMapping("/admin/bank/v1")
 public class BankController {
@@ -63,7 +66,23 @@ public class BankController {
             BankResponse response= bankService.addAdminBankInCorexfin(bankRequest, webRequest);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+ 
+    @DeleteMapping("/delete/{bankId}")
+    public ResponseEntity<BankResponse> deleteBankFromCorexfinById(@PathVariable String bankId) {
+
+            BankResponse response= bankService.deleteBankFromCorexfinById(bankId);
+            System.out.println(response);
+        	return  ResponseEntity.status(HttpStatus.OK).body(response);
+    }
     
+    // Rest Api to get all Banks
     
+    @GetMapping("/banks")
+    public ResponseEntity<List<Bank>> getAllBank(){
+    	
+    	return ResponseEntity.status(HttpStatus.OK).body(bankService. getAllBankFromCorexfin());
+
+    }
+
 
 }
